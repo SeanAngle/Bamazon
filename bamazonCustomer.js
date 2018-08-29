@@ -47,7 +47,7 @@ function askUser(){
     ]).then(function(iResp){
         connection.query("SELECT * FROM products WHERE item_id=?", [iResp.id], function(err, resp){
             if(err) throw err;
-            // Exits if the user enters a product id that does not exist
+            // Exits app if the user enters a product id that does not exist
             if(resp.length === 0){
                 console.log("The item you are looking for does not exist. Please enter a valid product ID.")
                 connection.end();
